@@ -33,7 +33,17 @@ jobs:
       - name: Build static site
         env:
           NEXT_PUBLIC_SITE_URL: https://satitech-official.github.io/venus-event-decor-premium-website
-        run: npm run build
+        run: |
+          set -o pipefail
+          npm run build 2>&1 | tee build.log
+
+      - name: Upload build diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-diagnostics
+          path: build.log
+          if-no-files-found: ignore
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
