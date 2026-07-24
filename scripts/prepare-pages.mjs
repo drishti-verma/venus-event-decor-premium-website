@@ -1,4 +1,4 @@
-import { copyFile, mkdir, readdir, readFile, writeFile } from "node:fs/promises";
+import { copyFile, readdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 const outputDirectory = path.resolve("out");
@@ -21,9 +21,8 @@ async function walk(directory) {
 function prefixRootRelativeUrls(content) {
   if (!basePath) return content;
 
-  const escapedBasePath = basePath.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   const rootRelativeAttribute = new RegExp(
-    `(href|src|action|poster)=(['\"])/(?!${escapedBasePath.slice(2)}(?:/|['\"]))`,
+    `(href|src|action|poster)=(['\"])/(?!${repositoryName}(?:/|['\"]))`,
     "g"
   );
 
@@ -41,13 +40,6 @@ for (const file of files) {
 }
 
 await writeFile(path.join(outputDirectory, ".nojekyll"), "");
-
-const indexPath = path.join(outputDirectory, "index.html");
-const fallbackPath = path.join(outputDirectory, "404.html");
-try {
-  await copyFile(indexPath, fallbackPath);
-} catch {
-  await mkdir(outputDirectory, { recursive: true });
-}
+await copyFile(path.join(outputDirectory, "index.html"), path.join(outputDirectory, "404.html"));
 
 console.log(`GitHub Pages output prepared${basePath ? ` for ${basePath}` : ""}.`);
