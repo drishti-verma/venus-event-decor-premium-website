@@ -1,4 +1,5 @@
 import "./globals.css";
+import BasePathGuard from "./components/BasePathGuard";
 import SiteFooter from "./components/SiteFooter";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://venus-event-decor.example";
@@ -42,6 +43,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
+        <BasePathGuard />
         <div id="top" className="site-shell">
           <div className="site-content">{children}</div>
           <SiteFooter />
