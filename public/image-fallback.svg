@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title description">
+  <title id="title">Venus Event &amp; Decor image fallback</title>
+  <desc id="description">A premium burgundy and gold event decoration placeholder.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#120c18"/>
+      <stop offset="0.55" stop-color="#321526"/>
+      <stop offset="1" stop-color="#5a2f37"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="42%" r="58%">
+      <stop offset="0" stop-color="#e9bf73" stop-opacity=".32"/>
+      <stop offset="1" stop-color="#e9bf73" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="24"/></filter>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#background)"/>
+  <rect width="1600" height="1000" fill="url(#glow)"/>
+  <circle cx="260" cy="190" r="155" fill="none" stroke="#d9a85d" stroke-opacity=".5" stroke-width="3"/>
+  <circle cx="1340" cy="810" r="190" fill="none" stroke="#d9a85d" stroke-opacity=".35" stroke-width="3"/>
+  <g fill="none" stroke="#f0cc88" stroke-opacity=".5" stroke-width="3">
+    <path d="M410 650c120-200 660-200 780 0"/>
+    <path d="M465 650c100-145 570-145 670 0"/>
+    <path d="M530 650c75-92 465-92 540 0"/>
+  </g>
+  <g fill="#f1d59d" opacity=".72" filter="url(#soft)">
+    <circle cx="540" cy="545" r="34"/><circle cx="1060" cy="545" r="34"/><circle cx="800" cy="430" r="48"/>
+  </g>
+  <rect x="330" y="675" width="940" height="2" fill="#d9a85d" opacity=".7"/>
+  <text x="800" y="760" fill="#fff6e7" text-anchor="middle" font-family="Georgia,serif" font-size="72" letter-spacing="8">VENUS</text>
+  <text x="800" y="818" fill="#e5bd76" text-anchor="middle" font-family="Arial,sans-serif" font-size="25" letter-spacing="9">EVENT &amp; DECOR</text>
+  <text x="800" y="875" fill="#f7ead3" fill-opacity=".78" text-anchor="middle" font-family="Arial,sans-serif" font-size="23" letter-spacing="4">WE CREATE. YOU CELEBRATE.</text>
+</svg>
