@@ -3,6 +3,9 @@ import BasePathGuard from "./components/BasePathGuard";
 import SiteFooter from "./components/SiteFooter";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://venus-event-decor.example";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+const faviconUrl = `${basePath}/favicon.svg`;
+const socialImageUrl = `${basePath}/image-fallback.svg`;
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
@@ -21,8 +24,9 @@ export const metadata = {
     "theme decoration",
   ],
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
+    icon: faviconUrl,
+    shortcut: faviconUrl,
+    apple: faviconUrl,
   },
   openGraph: {
     type: "website",
@@ -31,11 +35,20 @@ export const metadata = {
     title: "Venus Event & Decor | Luxury Event Production in Indore",
     description:
       "Cinematic wedding decor, corporate event production, premium stages, floral installations and celebration design in Indore and beyond.",
+    images: [
+      {
+        url: socialImageUrl,
+        width: 1600,
+        height: 1000,
+        alt: "Venus Event & Decor premium event styling",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Venus Event & Decor",
     description: "We Create. You Celebrate.",
+    images: [socialImageUrl],
   },
 };
 
