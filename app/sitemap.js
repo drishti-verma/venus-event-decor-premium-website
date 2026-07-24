@@ -1,5 +1,7 @@
 import { routePages } from "./data";
 
+export const dynamic = "force-static";
+
 export default function sitemap() {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://venus-event-decor.example";
   const now = new Date();
@@ -7,7 +9,7 @@ export default function sitemap() {
   const dynamicRoutes = Object.keys(routePages);
 
   return [...staticRoutes, ...dynamicRoutes].map((route) => ({
-    url: `${baseUrl}/${route}`,
+    url: route ? `${baseUrl}/${route}/` : `${baseUrl}/`,
     lastModified: now,
     changeFrequency: route ? "monthly" : "weekly",
     priority: route ? 0.7 : 1,
